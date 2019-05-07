@@ -1,0 +1,37 @@
+<input type="text" placeholder="Search by Title" class="form-control"  (input)="onSearchChange($event.target.value)">
+<table class="table table-bordered" >
+  <th>Title</th>
+  <th>URL</th>
+  <th>Created At</th>
+  <th>Author</th>
+  <tr *ngFor="let post of posts" (click) = "showModal(post)">
+    <td>{{post.title}}</td>
+    <td>{{post.url}}</td>
+    <td>{{post.created_at}}</td>
+    <td>{{post.author}}</td>
+  </tr>
+</table>
+
+<!-- modal -->
+<div class="modal" tabindex="-1" role="dialog" (click)="ClickedOut($event)"   [ngStyle]="{'display':display}">
+  <!-- modal-dialog -->
+  <div class="modal-dialog">
+    <!-- modal-content -->
+    <div class="modal-content" >
+      <!-- modal-header -->
+      <div class="modal-header" >
+          <h4 class="modal-title">Post in JSON format</h4>
+        <button type="button" class="close" aria-label="Close" (click)="closeModalDialog()"><span aria-hidden="true">&times;</span></button> 
+      </div>
+      <!-- modal-body -->
+      <div class="modal-body">
+        {{postJson}}
+      </div>
+
+      <!-- modal-footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" (click)="closeModalDialog()" >Close</button>
+      </div>
+    </div>
+  </div>
+</div>

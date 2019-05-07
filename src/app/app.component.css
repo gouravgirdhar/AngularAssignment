@@ -1,0 +1,12 @@
+tr {
+    cursor: pointer;
+}
+
+tr:hover {
+    background-color: lightgray;
+}
+
+
+.modal-body {
+    overflow-wrap: break-word;
+}
